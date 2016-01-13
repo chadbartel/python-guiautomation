@@ -1,13 +1,13 @@
 #! python3
 # formFiller.py - Automatically fills in the form.
-# https://www.nostarch.com/automatestuffresources
+# http://autbor.com/form
 
 import pyautogui, time
 
 # Set these to the correct coordinates for your computer
-nameField = (180, 347)
-submitButton = (222, 845)
-submitButtonColor = (74, 140, 246)
+nameField = (187, 349)
+submitButton = (230, 827)
+submitButtonColor = (74, 139, 246)
 submitAnotherLink = (327, 261)
 
 formData = [{'name': 'Alice', 'fear': 'eavesdroppers', 'source': 'wand',
@@ -61,8 +61,15 @@ for person in formData:
     elif person['robocop'] == 5:
         pyautogui.typewrite(['right', 'right', 'right', 'right', '\t'])
 
-# TODO: Fill out the Additional Comments field.
+# Fill out the Additional Comments field.
+    pyautogui.typewrite(person['comments'] + '\t')
 
-# TODO: Click Submit.
+# Click Submit.
+    pyautogui.press('enter')
 
-# TODO: Click the Submit another response link.
+# Wait until the page has loaded
+    print('Clicked Submit.')
+    time.sleep(5)
+
+# Click the Submit another response link.
+    pyautogui.click(submitAnotherLink[0], submitAnotherLink[1])
