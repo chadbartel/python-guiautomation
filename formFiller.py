@@ -1,6 +1,6 @@
 #! python3
 # formFiller.py - Automatically fills in the form.
-# https://docs.google.com/forms/d/1A39NpQYMN8OOG-_lqDLFQb2h1SiHhCxPh0udtDEy2rU/viewform
+# https://www.nostarch.com/automatestuffresources
 
 import pyautogui, time
 
