@@ -13,7 +13,7 @@ class Application(Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        # TODO: create 2 labels
+# create 2 labels
         self.instructLabel = Label(self,
                                    text='The button below will return your mouse\'s\n' +
                                    'position after counting down from five.',
@@ -28,14 +28,14 @@ class Application(Frame):
                                   textvariable=self.resultsLabelVar)
         self.resultsLabelVar.set('Results displayed here.')
 
-        # TODO: create button to begin countdown and get mouse coords
+# create button to begin countdown and get mouse coords
         self.bVar = StringVar()
         self.b = Button(self,
                         textvariable=self.bVar,
                         command=self.countThenMouse)
         self.bVar.set('Click me to get\nyour cursor\'s position!')
 
-        # TODO: arrange each widget in the window
+# arrange each widget in the window
         self.instructLabel.grid(row=0, column=0, sticky=W+E)
         self.b.grid(row=1, column=0)
         self.resultsLabel.grid(row=2, column=0, sticky=W+E)
