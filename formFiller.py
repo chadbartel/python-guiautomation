@@ -22,23 +22,44 @@ formData = [{'name': 'Alice', 'fear': 'eavesdroppers', 'source': 'wand',
 pyautogui.PAUSE = 0.5
 
 for person in formData:
-    # Give the user a chance to kill the script
+# Give the user a chance to kill the script
     print('>>> 5 SECOND PAUSE TO LET USER PRESS CTRL-C <<<')
     time.sleep(5)
 
-    # Wait until the form page has loaded.
-    while not pyautogui.pixelMatchesColor(submitButton[0], submitButton[1],
-                                          submitButtonColor):
+# Wait until the form page has loaded.
+    while not pyautogui.pixelMatchesColor(submitButton[0], submitButton[1], submitButtonColor):
         time.sleep(0.5)
-    print("loaded")
 
-# TODO: Fill ou the Name Field.
+# Fill out the Name Field.
+    print('Entering %s info...' % (person['name']))
+    pyautogui.click(nameField[0], nameField[1])
 
-# TODO: Fill out the Greatest Fear(s) field.
+    pyautogui.typewrite(person['name'] + '\t')
 
-# TODO: Fill out the Source or Wizard Powers field.
+# Fill out the Greatest Fear(s) field.
+    pyautogui.typewrite(person['fear'] + '\t')
 
-# TODO: Fill out the Robocop field.
+# Fill out the Source or Wizard Powers field.
+    if person['source'] == 'wand':
+        pyautogui.typewrite(['down', '\t'])
+    elif person['source'] == 'amulet':
+        pyautogui.typewrite(['down', 'down', '\t'])
+    elif person['source'] == 'crystal ball':
+        pyautogui.typewrite(['down', 'down', 'down', '\t'])
+    elif person['source'] == 'money':
+        pyautogui.typewrite(['down', 'down', 'down', 'down', '\t'])
+
+# Fill out the Robocop field.
+    if person['robocop'] == 1:
+        pyautogui.typewrite([' ', '\t'])
+    elif person['robocop'] == 2:
+        pyautogui.typewrite(['right', '\t'])
+    elif person['robocop'] == 3:
+        pyautogui.typewrite(['right', 'right', '\t'])
+    elif person['robocop'] == 4:
+        pyautogui.typewrite(['right', 'right', 'right', '\t'])
+    elif person['robocop'] == 5:
+        pyautogui.typewrite(['right', 'right', 'right', 'right', '\t'])
 
 # TODO: Fill out the Additional Comments field.
 
