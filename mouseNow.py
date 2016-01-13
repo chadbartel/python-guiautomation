@@ -1,7 +1,7 @@
 #! python3
 # mouseNow.py - Displays the mouse cursor's current position.
 
-from pyautogui import position
+from pyautogui import position, screenshot
 from time import sleep
 from tkinter import *
 
@@ -49,7 +49,11 @@ class Application(Frame):
 
     def getMouse(self):
         x, y = position()
-        self.resultsLabelVar.set('X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4))
+        pixColor = screenshot().getpixel((x, y))
+        self.resultsLabelVar.set('X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4) +
+                                 ' RGB: (' + str(pixColor[0]).rjust(3) +
+                                 ', ' + str(pixColor[1]).rjust(3) +
+                                 ', ' + str(pixColor[2]).rjust(3) + ')')
 
     def countThenMouse(self):
         self.countDown()
