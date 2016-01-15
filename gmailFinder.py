@@ -3,10 +3,10 @@ from time import sleep
 
 def findGmailFolder(image):
     try:
-        x, y = locateCenterOnScreen('C:\\Users\\cbartel\\Pictures\\autoguipics\\' + image)
+        x, y = locateCenterOnScreen('C:\\pictures-folder\\' + image)
         sleep(3)
         click(x, y)
     except:
         alert(text='Could not locate image!', title='Error', button='OK')
 
-findGmailFolder('smk-gmail-folder.png')
+findGmailFolder('image.png')
