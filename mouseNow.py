@@ -1,7 +1,7 @@
 #! python3
 # mouseNow.py - Displays the mouse cursor's current position.
 
-from pyautogui import position, screenshot
+from pyautogui import *
 from time import sleep
 from tkinter import *
 
