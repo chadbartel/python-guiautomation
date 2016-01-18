@@ -14,7 +14,7 @@ boxiEmailDict = {'a.png': 'C:\\a folder',
                  'b.png': 'C:\\b folder'}
 autoGUIPicsFolder = 'C:\\'
 
-# TODO: pack function in tkinter
+# pack function in tkinter
 class Application(Frame):
 
     def __init__(self, master=NONE):
@@ -59,7 +59,7 @@ class Application(Frame):
         self.scrollbarX.config(command=self.progressList.xview)
 
 
-# TODO: arrange your widgets in the window
+# arrange your widgets in the window
         self.labelButtonFrame.grid(row=0, column=0, sticky=N+E+S+W)
         self.autoGUILabel.grid(row=0, column=0)
         self.beginButton.grid(row=1, column=0)
