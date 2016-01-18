@@ -10,8 +10,9 @@ FAILSAFE = True
 PAUSE = 2.5
 
 # create the k-v pair for each matched image with its save dir
-emailDict = {}
-autoGUIPicsFolder = ''
+boxiEmailDict = {'a.png': 'C:\\a folder',
+                 'b.png': 'C:\\b folder'}
+autoGUIPicsFolder = 'C:\\'
 
 # TODO: pack function in tkinter
 class Application(Frame):
@@ -81,8 +82,8 @@ class Application(Frame):
 # when found click on the unread email and wait for
 # the excel icon to appear
     def findUnreadBOXIReports(self):
-        boxiUnreadPicsFolder = ''
-        for k, v in emailDict.items():
+        boxiUnreadPicsFolder = 'C:\\'
+        for k, v in boxiEmailDict.items():
             self.progressList.insert(END, "Searching...")
             try:
                 x, y = locateCenterOnScreen(boxiUnreadPicsFolder + k)
@@ -114,20 +115,19 @@ class Application(Frame):
         moveRel(-98, -416)
         click()
         sleep(0.25)
-        typewrite(value, interval=0.25)
-        press('enter')
-        sleep(1)
+        typewrite(value, interval=0.1)
+        press('enter', interval=0.5)
 
 # if specific report, then change the file name
         if key == 'lsmp161-unread.png':
             x3, y3 = locateCenterOnScreen(autoGUIPicsFolder + 'save-as-filename.png')
             moveTo(x3, y3)
-            moveRel(30)
+            moveRel(50)
             click()
             sleep(0.25)
             hotkey('ctrl', 'a')
-            press('delete', interval=0.25)
-            typewrite('fdsa' + str(date.today()), interval=0.25)
+            press('delete', interval=0.5)
+            typewrite('MP161 US Les Schwab ' + str(date.today()), interval=0.1)
             x4, y4 = locateCenterOnScreen(autoGUIPicsFolder + 'save-active.png')
             click(x4, y4)
             self.progressList.insert(END, "Saved " + str(key) + " to " + str(value))
